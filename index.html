@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AURUM | Tecnologia & Lifestyle Premium</title>
+    <meta name="description" content="Descubra a coleção exclusiva de tecnologia e lifestyle da AURUM. Produtos premium com design excepcional e entrega para todo o Brasil.">
+    <!-- Segurança -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src https://fonts.gstatic.com; img-src 'self' data:; script-src 'self' 'unsafe-inline';">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+    <!-- ======== HEADER ======== -->
+    <header class="header" id="header">
+        <div class="header-inner">
+            <a href="#" class="logo">Aurum</a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#home">Início</a></li>
+                    <li><a href="#categories">Categorias</a></li>
+                    <li><a href="#products">Produtos</a></li>
+                    <li><a href="#about">Sobre</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="cart-btn" id="cart-open" aria-label="Abrir carrinho">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+                    <span class="cart-badge" id="cart-badge">0</span>
+                </button>
+                <button class="mobile-menu-btn" id="mobile-menu" aria-label="Menu">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ======== CART SIDEBAR ======== -->
+    <div class="cart-overlay" id="cart-overlay"></div>
+    <aside class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3>Seu Carrinho</h3>
+            <button class="cart-close" id="cart-close" aria-label="Fechar carrinho">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <div class="cart-empty" id="cart-empty">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+                <p>Seu carrinho está vazio</p>
+            </div>
+        </div>
+        <div class="cart-footer" id="cart-footer" style="display:none;">
+            <div class="cart-total">
+                <span>Total</span>
+                <strong id="cart-total-value">R$ 0,00</strong>
+            </div>
+            <button class="btn-checkout" onclick="alert('Integração com gateway de pagamento em breve!')">Finalizar Compra</button>
+        </div>
+    </aside>
+
+    <!-- ======== TOAST ======== -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <main>
+        <!-- ======== HERO ======== -->
+        <section class="hero" id="home">
+            <div class="container">
+                <div class="hero-grid">
+                    <div class="hero-content">
+                        <span class="hero-tag">
+                            <span class="dot"></span>
+                            Mais Vendido 2025
+                        </span>
+                        <h1>
+                            <span class="gradient-text">Cinema Portátil.</span><br>
+                            <span class="accent-text">Resolução 8K.</span>
+                        </h1>
+                        <p class="hero-desc">MAGCUBIC HY300 PRO — projetor portátil com Android 11, WiFi 6 e tela de até 150". O cinema que cabe na sua mochila. +10.000 unidades vendidas.</p>
+                        <div class="hero-buttons">
+                            <button class="btn btn-primary" onclick="Store.addToCart('magcubic-hy300-pro')">
+                                Comprar — R$ 599,90
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                            </button>
+                            <a href="#products" class="btn btn-ghost">Ver Coleção</a>
+                        </div>
+                        <div class="hero-stats">
+                            <div class="hero-stat">
+                                <h3>4.7★</h3>
+                                <span>+10.000 vendidos</span>
+                            </div>
+                            <div class="hero-stat">
+                                <h3>8K</h3>
+                                <span>Resolução máxima</span>
+                            </div>
+                            <div class="hero-stat">
+                                <h3>150"</h3>
+                                <span>Tela projetada</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-image-wrapper">
+                        <img src="assets/magcubic-hy300-pro.png" alt="MAGCUBIC HY300 PRO - Projetor portátil 8K com Android 11" loading="eager">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======== MARQUEE ======== -->
+        <div class="marquee-section">
+            <div class="marquee-track">
+                <span>Frete Grátis acima de R$ 299</span>
+                <span>Garantia de 2 anos</span>
+                <span>Troca em até 30 dias</span>
+                <span>Pagamento em até 12x</span>
+                <span>Entrega para todo Brasil</span>
+                <span>Suporte 24/7</span>
+                <span>Frete Grátis acima de R$ 299</span>
+                <span>Garantia de 2 anos</span>
+                <span>Troca em até 30 dias</span>
+                <span>Pagamento em até 12x</span>
+                <span>Entrega para todo Brasil</span>
+                <span>Suporte 24/7</span>
+            </div>
+        </div>
+
+        <!-- ======== CATEGORIAS ======== -->
+        <section class="section" id="categories">
+            <div class="container">
+                <div class="section-header">
+                    <span class="tag">Explore</span>
+                    <h2>Categorias em Destaque</h2>
+                    <p>Curadoria de produtos para quem exige o melhor em cada detalhe.</p>
+                </div>
+                <div class="bento-grid">
+                    <div class="bento-item bento-featured">
+                        <div class="icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 18v-6a9 9 0 0118 0v6"/><path d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z"/></svg>
+                        </div>
+                        <h3>Áudio Premium</h3>
+                        <p>Fones e caixas de som com qualidade de estúdio para o seu dia a dia.</p>
+                    </div>
+                    <div class="bento-item bento-wide">
+                        <div class="icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+                        </div>
+                        <h3>Mochilas Tech</h3>
+                        <p>Proteção e estilo para transportar seus dispositivos.</p>
+                    </div>
+                    <div class="bento-item">
+                        <div class="icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        </div>
+                        <h3>Wearables</h3>
+                        <p>O futuro no seu pulso.</p>
+                    </div>
+                    <div class="bento-item">
+                        <div class="icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+                        </div>
+                        <h3>Home & Office</h3>
+                        <p>Automação elegante.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======== PRODUTOS ======== -->
+        <section class="section" id="products">
+            <div class="container">
+                <div class="section-header">
+                    <span class="tag">Loja</span>
+                    <h2>Destaques da Semana</h2>
+                    <p>Produtos selecionados com o selo de qualidade Aurum.</p>
+                </div>
+                <div class="products-grid" id="products-grid">
+                    <!-- Products rendered by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ======== FEATURES ======== -->
+        <section class="section" id="about">
+            <div class="container">
+                <div class="section-header">
+                    <span class="tag">Por que Aurum?</span>
+                    <h2>Confiança em Cada Detalhe</h2>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                        </div>
+                        <h4>Frete Grátis</h4>
+                        <p>Para compras acima de R$ 299 em todo o território nacional.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        </div>
+                        <h4>Compra Segura</h4>
+                        <p>Criptografia de ponta e certificado SSL em todas as transações.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"/></svg>
+                        </div>
+                        <h4>Troca Fácil</h4>
+                        <p>Até 30 dias para devolver ou trocar sem burocracia.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+                        </div>
+                        <h4>Suporte 24/7</h4>
+                        <p>Atendimento humano sempre disponível via chat ou WhatsApp.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======== NEWSLETTER ======== -->
+        <section class="section newsletter-section">
+            <div class="container">
+                <div class="newsletter-card">
+                    <h2>Fique por Dentro</h2>
+                    <p>Receba lançamentos exclusivos e ofertas antes de todo mundo.</p>
+                    <form class="newsletter-form" onsubmit="event.preventDefault(); Store.toast('E-mail cadastrado com sucesso!'); this.reset();">
+                        <input type="email" placeholder="seu@email.com" required aria-label="Seu e-mail">
+                        <button type="submit" class="btn btn-primary btn-sm">Inscrever</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ======== FOOTER ======== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">Aurum</a>
+                    <p>Tecnologia e lifestyle com design que inspira. Desde 2025, entregando excelência para todo o Brasil.</p>
+                </div>
+                <div class="footer-col">
+                    <h5>Navegação</h5>
+                    <a href="#home">Início</a>
+                    <a href="#categories">Categorias</a>
+                    <a href="#products">Produtos</a>
+                    <a href="#about">Sobre Nós</a>
+                </div>
+                <div class="footer-col">
+                    <h5>Suporte</h5>
+                    <a href="#">Central de Ajuda</a>
+                    <a href="#">Rastrear Pedido</a>
+                    <a href="#">Trocas e Devoluções</a>
+                    <a href="#">Contato</a>
+                </div>
+                <div class="footer-col">
+                    <h5>Legal</h5>
+                    <a href="#">Política de Privacidade</a>
+                    <a href="#">Termos de Uso</a>
+                    <a href="#">Cookies</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2025 Aurum. Todos os direitos reservados.</span>
+                <span>Feito com ♦ no Brasil</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
