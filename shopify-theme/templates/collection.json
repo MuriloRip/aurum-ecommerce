@@ -1,0 +1,12 @@
+{
+  "sections": {
+    "main": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Todos os Produtos",
+        "subtitle": "Explore nosso catálogo completo."
+      }
+    }
+  },
+  "order": ["main"]
+}

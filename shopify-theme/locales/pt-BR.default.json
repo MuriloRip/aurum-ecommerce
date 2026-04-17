@@ -1,0 +1,13 @@
+{
+  "general": {
+    "404_title": "Página não encontrada",
+    "404_subtitle": "A página que você procura não existe.",
+    "search_placeholder": "Buscar produtos..."
+  },
+  "cart": {
+    "title": "Carrinho",
+    "empty": "Seu carrinho está vazio",
+    "checkout": "Finalizar Compra",
+    "total": "Total"
+  }
+}

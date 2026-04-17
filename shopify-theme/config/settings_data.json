@@ -1,0 +1,12 @@
+{
+    "current": {
+        "color_accent": "#d4a373",
+        "color_bg": "#08080a",
+        "color_text": "#f5f5f7",
+        "sections": {
+            "header": { "type": "header", "settings": { "sticky": true } },
+            "footer": { "type": "footer", "settings": {} }
+        },
+        "content_for_index": []
+    }
+}

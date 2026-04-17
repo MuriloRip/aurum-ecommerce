@@ -1,0 +1,44 @@
+<!-- ======== FOOTER ======== -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="/" class="logo">{{ shop.name }}</a>
+                <p>{{ section.settings.about | default: 'Tecnologia e lifestyle com design que inspira. Desde 2025, entregando excelência para todo o Brasil.' }}</p>
+            </div>
+            {%- for block in section.blocks -%}
+            <div class="footer-col" {{ block.shopify_attributes }}>
+                <h5>{{ block.settings.heading }}</h5>
+                {%- assign menu = linklists[block.settings.menu] -%}
+                {%- for link in menu.links -%}
+                <a href="{{ link.url }}">{{ link.title }}</a>
+                {%- endfor -%}
+            </div>
+            {%- endfor -%}
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. Todos os direitos reservados.</span>
+            <span>Feito com ♦ no Brasil</span>
+        </div>
+    </div>
+</footer>
+
+{% schema %}
+{
+    "name": "Footer",
+    "settings": [
+        { "type": "textarea", "id": "about", "label": "Texto sobre a marca", "default": "Tecnologia e lifestyle com design que inspira." }
+    ],
+    "blocks": [
+        {
+            "type": "menu",
+            "name": "Coluna de Menu",
+            "settings": [
+                { "type": "text", "id": "heading", "label": "Título da coluna", "default": "Navegação" },
+                { "type": "link_list", "id": "menu", "label": "Menu", "default": "footer" }
+            ]
+        }
+    ],
+    "presets": [{ "name": "Footer" }]
+}
+{% endschema %}

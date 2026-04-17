@@ -1,0 +1,27 @@
+<!-- ======== NEWSLETTER ======== -->
+<section class="section newsletter-section">
+    <div class="container">
+        <div class="newsletter-card">
+            <h2>{{ section.settings.heading | default: 'Fique por Dentro' }}</h2>
+            <p>{{ section.settings.description | default: 'Receba lançamentos exclusivos e ofertas antes de todo mundo.' }}</p>
+            {%- form 'customer' -%}
+            <div class="newsletter-form">
+                <input type="hidden" name="contact[tags]" value="newsletter">
+                <input type="email" name="contact[email]" placeholder="seu@email.com" required aria-label="Seu e-mail" autocomplete="email">
+                <button type="submit" class="btn btn-primary btn-sm">Inscrever</button>
+            </div>
+            {%- endform -%}
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+    "name": "Newsletter",
+    "settings": [
+        { "type": "text", "id": "heading", "label": "Título", "default": "Fique por Dentro" },
+        { "type": "textarea", "id": "description", "label": "Descrição", "default": "Receba lançamentos exclusivos e ofertas antes de todo mundo." }
+    ],
+    "presets": [{ "name": "Newsletter" }]
+}
+{% endschema %}

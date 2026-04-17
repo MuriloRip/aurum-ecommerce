@@ -1,0 +1,149 @@
+<!-- ======== HERO BANNER ======== -->
+<section class="hero" id="home">
+    <div class="container">
+        <div class="hero-grid">
+            <div class="hero-content">
+                <span class="hero-tag">
+                    <span class="dot"></span>
+                    {{ section.settings.tag_text | default: 'Mais Vendido 2025' }}
+                </span>
+                <h1>
+                    <span class="gradient-text">{{ section.settings.heading_line1 }}</span><br>
+                    <span class="accent-text">{{ section.settings.heading_line2 }}</span>
+                </h1>
+                <p class="hero-desc">{{ section.settings.description }}</p>
+                <div class="hero-buttons">
+                    {%- if section.settings.featured_product != blank -%}
+                    <a href="{{ section.settings.featured_product.url }}" class="btn btn-primary">
+                        {{ section.settings.button_label | default: 'Comprar Agora' }}
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                    {%- else -%}
+                    <a href="/collections/all" class="btn btn-primary">
+                        {{ section.settings.button_label | default: 'Ver Coleção' }}
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                    {%- endif -%}
+                    <a href="/collections/all" class="btn btn-ghost">Ver Coleção</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <h3>{{ section.settings.stat_1_value }}</h3>
+                        <span>{{ section.settings.stat_1_label }}</span>
+                    </div>
+                    <div class="hero-stat">
+                        <h3>{{ section.settings.stat_2_value }}</h3>
+                        <span>{{ section.settings.stat_2_label }}</span>
+                    </div>
+                    <div class="hero-stat">
+                        <h3>{{ section.settings.stat_3_value }}</h3>
+                        <span>{{ section.settings.stat_3_label }}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image-wrapper">
+                {%- if section.settings.hero_image != blank -%}
+                <img src="{{ section.settings.hero_image | image_url: width: 800 }}" 
+                     alt="{{ section.settings.hero_image.alt | default: section.settings.heading_line1 }}" 
+                     loading="eager"
+                     width="800" height="800">
+                {%- elsif section.settings.featured_product != blank -%}
+                <img src="{{ section.settings.featured_product.featured_image | image_url: width: 800 }}"
+                     alt="{{ section.settings.featured_product.title }}"
+                     loading="eager"
+                     width="800" height="800">
+                {%- endif -%}
+            </div>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+    "name": "Hero Banner",
+    "class": "section-hero",
+    "settings": [
+        {
+            "type": "text",
+            "id": "tag_text",
+            "label": "Tag de destaque",
+            "default": "Mais Vendido 2025"
+        },
+        {
+            "type": "text",
+            "id": "heading_line1",
+            "label": "Título linha 1",
+            "default": "Cinema Portátil."
+        },
+        {
+            "type": "text",
+            "id": "heading_line2",
+            "label": "Título linha 2 (destaque)",
+            "default": "Resolução 8K."
+        },
+        {
+            "type": "textarea",
+            "id": "description",
+            "label": "Descrição",
+            "default": "MAGCUBIC HY300 PRO — projetor portátil com Android 11, WiFi 6 e tela de até 150\"."
+        },
+        {
+            "type": "product",
+            "id": "featured_product",
+            "label": "Produto em destaque"
+        },
+        {
+            "type": "image_picker",
+            "id": "hero_image",
+            "label": "Imagem hero (substitui a do produto)"
+        },
+        {
+            "type": "text",
+            "id": "button_label",
+            "label": "Texto do botão",
+            "default": "Comprar — R$ 599,90"
+        },
+        {
+            "type": "text",
+            "id": "stat_1_value",
+            "label": "Estatística 1 — Valor",
+            "default": "4.7★"
+        },
+        {
+            "type": "text",
+            "id": "stat_1_label",
+            "label": "Estatística 1 — Label",
+            "default": "+10.000 vendidos"
+        },
+        {
+            "type": "text",
+            "id": "stat_2_value",
+            "label": "Estatística 2 — Valor",
+            "default": "8K"
+        },
+        {
+            "type": "text",
+            "id": "stat_2_label",
+            "label": "Estatística 2 — Label",
+            "default": "Resolução máxima"
+        },
+        {
+            "type": "text",
+            "id": "stat_3_value",
+            "label": "Estatística 3 — Valor",
+            "default": "150\""
+        },
+        {
+            "type": "text",
+            "id": "stat_3_label",
+            "label": "Estatística 3 — Label",
+            "default": "Tela projetada"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Hero Banner"
+        }
+    ]
+}
+{% endschema %}

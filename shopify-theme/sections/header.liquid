@@ -1,0 +1,43 @@
+<!-- ======== HEADER SECTION ======== -->
+<header class="header{% if section.settings.sticky %} header--sticky{% endif %}" id="header">
+    <div class="header-inner">
+        <a href="/" class="logo">{{ shop.name }}</a>
+        <nav>
+            <ul class="nav-links">
+                {%- for link in section.settings.menu.links -%}
+                <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                {%- endfor -%}
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <a href="/cart" class="cart-btn" id="cart-open" aria-label="Carrinho">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+                <span class="cart-badge{% if cart.item_count > 0 %} show{% endif %}" id="cart-badge">{{ cart.item_count }}</span>
+            </a>
+            <button class="mobile-menu-btn" id="mobile-menu" aria-label="Menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+            </button>
+        </div>
+    </div>
+</header>
+
+{% schema %}
+{
+    "name": "Header",
+    "class": "section-header",
+    "settings": [
+        {
+            "type": "link_list",
+            "id": "menu",
+            "label": "Menu de navegação",
+            "default": "main-menu"
+        },
+        {
+            "type": "checkbox",
+            "id": "sticky",
+            "label": "Fixar no topo",
+            "default": true
+        }
+    ]
+}
+{% endschema %}

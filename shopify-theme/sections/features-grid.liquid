@@ -1,0 +1,66 @@
+<!-- ======== FEATURES / USP GRID ======== -->
+<section class="section" id="about">
+    <div class="container">
+        <div class="section-header">
+            <span class="tag">{{ section.settings.tag | default: 'Por que Aurum?' }}</span>
+            <h2>{{ section.settings.heading | default: 'Confiança em Cada Detalhe' }}</h2>
+        </div>
+        <div class="features-grid">
+            {%- for block in section.blocks -%}
+            <div class="feature-card" {{ block.shopify_attributes }}>
+                <div class="feature-icon">
+                    {%- case block.settings.icon -%}
+                    {%- when 'truck' -%}
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                    {%- when 'shield' -%}
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    {%- when 'refresh' -%}
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"/></svg>
+                    {%- when 'chat' -%}
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+                    {%- endcase -%}
+                </div>
+                <h4>{{ block.settings.title }}</h4>
+                <p>{{ block.settings.description }}</p>
+            </div>
+            {%- endfor -%}
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+    "name": "Vantagens",
+    "settings": [
+        { "type": "text", "id": "tag", "label": "Tag", "default": "Por que Aurum?" },
+        { "type": "text", "id": "heading", "label": "Título", "default": "Confiança em Cada Detalhe" }
+    ],
+    "blocks": [
+        {
+            "type": "feature",
+            "name": "Vantagem",
+            "settings": [
+                { "type": "select", "id": "icon", "label": "Ícone", "options": [
+                    { "value": "truck", "label": "Caminhão" },
+                    { "value": "shield", "label": "Escudo" },
+                    { "value": "refresh", "label": "Troca" },
+                    { "value": "chat", "label": "Chat" }
+                ], "default": "truck" },
+                { "type": "text", "id": "title", "label": "Título", "default": "Frete Grátis" },
+                { "type": "textarea", "id": "description", "label": "Descrição", "default": "Para compras acima de R$ 299." }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Vantagens",
+            "blocks": [
+                { "type": "feature", "settings": { "icon": "truck", "title": "Frete Grátis", "description": "Para compras acima de R$ 299 em todo o território nacional." } },
+                { "type": "feature", "settings": { "icon": "shield", "title": "Compra Segura", "description": "Criptografia de ponta e certificado SSL em todas as transações." } },
+                { "type": "feature", "settings": { "icon": "refresh", "title": "Troca Fácil", "description": "Até 30 dias para devolver ou trocar sem burocracia." } },
+                { "type": "feature", "settings": { "icon": "chat", "title": "Suporte 24/7", "description": "Atendimento humano sempre disponível via chat ou WhatsApp." } }
+            ]
+        }
+    ]
+}
+{% endschema %}

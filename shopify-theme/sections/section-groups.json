@@ -1,0 +1,24 @@
+{
+    "header-group": {
+        "type": "header-group",
+        "name": "Header group",
+        "sections": {
+            "header": {
+                "type": "header",
+                "settings": {}
+            }
+        },
+        "order": ["header"]
+    },
+    "footer-group": {
+        "type": "footer-group",
+        "name": "Footer group",
+        "sections": {
+            "footer": {
+                "type": "footer",
+                "settings": {}
+            }
+        },
+        "order": ["footer"]
+    }
+}

@@ -1,0 +1,51 @@
+{
+  "sections": {
+    "header": {
+      "type": "header",
+      "settings": {}
+    },
+    "hero": {
+      "type": "hero-banner",
+      "settings": {
+        "heading_line1": "Cinema Portátil.",
+        "heading_line2": "Resolução 8K.",
+        "description": "MAGCUBIC HY300 PRO — projetor portátil com Android 11, WiFi 6 e tela de até 150\". O cinema que cabe na sua mochila.",
+        "button_label": "Comprar — R$ 599,90",
+        "stat_1_value": "4.7★",
+        "stat_1_label": "+10.000 vendidos",
+        "stat_2_value": "8K",
+        "stat_2_label": "Resolução máxima",
+        "stat_3_value": "150\"",
+        "stat_3_label": "Tela projetada"
+      }
+    },
+    "marquee": {
+      "type": "marquee-banner",
+      "settings": {}
+    },
+    "featured-collection": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Destaques da Semana",
+        "subtitle": "Produtos selecionados com o selo de qualidade Aurum.",
+        "collection": "all"
+      }
+    },
+    "features": {
+      "type": "features-grid",
+      "settings": {}
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {}
+    }
+  },
+  "order": [
+    "header",
+    "hero",
+    "marquee",
+    "featured-collection",
+    "features",
+    "newsletter"
+  ]
+}

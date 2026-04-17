@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html class="no-js" lang="{{ request.locale.iso_code }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>
+        {%- if page_title -%}{{ page_title }} | {{ shop.name }}{%- else -%}{{ shop.name }}{%- endif -%}
+    </title>
+
+    {%- if page_description -%}
+    <meta name="description" content="{{ page_description | escape }}">
+    {%- endif -%}
+
+    <!-- Segurança -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+
+    {{ content_for_header }}
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    {{ 'aurum.css' | asset_url | stylesheet_tag }}
+</head>
+<body class="template-{{ template.name }}">
+    
+    {%- sections 'header-group' -%}
+
+    <main id="MainContent" role="main">
+        {{ content_for_layout }}
+    </main>
+
+    {%- sections 'footer-group' -%}
+
+    <!-- Toast Container -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <!-- Cart Overlay -->
+    <div class="cart-overlay" id="cart-overlay"></div>
+
+    {{ 'aurum.js' | asset_url | script_tag }}
+</body>
+</html>
